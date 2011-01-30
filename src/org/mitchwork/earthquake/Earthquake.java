@@ -20,9 +20,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
@@ -40,15 +42,174 @@ public class Earthquake extends Activity {
 	
 	ArrayList<Quake> earthquakes = new ArrayList<Quake>();
 	
+	static final private int MENU_UPDATE = Menu.FIRST;
+	static final private int QUAKE_DIALOG =1;
+	Quake selectedQuake;
+	
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.main);
         
         earthquakeListView = (ListView)this.findViewById(R.id.earthquakeListView);
+        earthquakeListView.setOnItemClickListener(new OnItemClickListener() {
+        	@Override
+        	public void onItemClick(AdapterView _av, View _v, int _index, long arg3) {
+        		selectedQuake = earthquakes.get(_index);
+        		showDialog(QUAKE_DIALOG);
+        	}
+		});
         
         int layoutID = android.R.layout.simple_list_item_1;
         aa = new ArrayAdapter<Quake>(this, layoutID, earthquakes);
         earthquakeListView.setAdapter(aa);
+        
+        refreshEarthquakes();
+    }
+    
+    private void refreshEarthquakes() {
+    	// Get the XML
+    	URL url;
+    	try {
+    		String quakeFeed = getString(R.string.quake_feed);
+    		url = new URL(quakeFeed);
+    		
+    		URLConnection connection;
+    		connection = url.openConnection();
+    		
+    		HttpURLConnection httpConnection = (HttpURLConnection)connection;
+    		int responseCode = httpConnection.getResponseCode();
+    		
+    		if (responseCode == HttpURLConnection.HTTP_OK) {
+    			InputStream in = httpConnection.getInputStream();
+    			
+    			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    			DocumentBuilder db = dbf.newDocumentBuilder();
+    			
+    			// Parse the earthquake feed.
+    			Document dom = db.parse(in);
+    			Element docEle = dom.getDocumentElement();
+    			
+    			// Clear the old earthquakes
+    			earthquakes.clear();
+    			
+    			// Get a list of each earthquake entry.
+    			NodeList nl = docEle.getElementsByTagName("entry");
+    			if (nl != null && nl.getLength() > 0) {
+    				for (int i = 0; i < nl.getLength(); i++) {
+    					Element entry = (Element)nl.item(i);
+    					Element title = (Element)entry.getElementsByTagName("title").item(0);
+    					Element g = (Element)entry.getElementsByTagName("georss:point").item(0);
+    					Element when = (Element)entry.getElementsByTagName("updated").item(0);
+    					Element link = (Element)entry.getElementsByTagName("link").item(0);
+    					String details = title.getFirstChild().getNodeValue();
+    					String hostname = "http://earthquake.usgs.gov";
+    					String linkString = hostname + link.getAttribute("href");
+    					
+    					String point = g.getFirstChild().getNodeValue();
+    					String dt = when.getFirstChild().getNodeValue();
+    					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
+    					Date qdate = new GregorianCalendar(0, 0, 0).getTime();
+    					try {
+    						qdate = sdf.parse(dt);
+    					} catch (ParseException e) {
+    						e.printStackTrace();
+    					}
+    					
+    					String[] location = point.split(" ");
+    					Location l = new Location("dummyGPS");
+    					l.setLatitude(Double.parseDouble(location[0]));
+    					l.setLongitude(Double.parseDouble(location[1]));
+    					
+    					String magnitudeString = details.split(" ")[1];
+    					int end = magnitudeString.length()-1;
+    					double magnitude = Double.parseDouble(magnitudeString.substring(0, end));
+    					
+    					details = details.split(",")[1].trim();
+    					
+    					Quake quake = new Quake(qdate, details, l, magnitude, linkString);
+    					
+    					// Process a newly found earthquake
+    					addNewQuake(quake);
+    				}
+    			}
+    		}
+    	} catch (MalformedURLException e) {
+    		e.printStackTrace();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	} catch (ParserConfigurationException e) {
+    		e.printStackTrace();
+    	} catch (SAXException e) {
+    		e.printStackTrace();
+    	}
+    	finally {
+      	}
+    }
+    
+    private void addNewQuake(Quake _quake) {
+    	// Add the new quake to our list of earthquakes.
+    	earthquakes.add(_quake);
+    	
+    	// Notify the array adapter of a change.
+    	aa.notifyDataSetChanged();
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	super.onCreateOptionsMenu(menu);
+    	
+    	menu.add(0, MENU_UPDATE, Menu.NONE, R.string.menu_update);
+    	
+    	return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	super.onOptionsItemSelected(item);
+    	
+    	switch (item.getItemId()) {
+    	case (MENU_UPDATE): {
+    		refreshEarthquakes();
+    		return true;
+    	}
+    	}
+    	return false;
+    }
+    
+    @Override
+    public Dialog onCreateDialog(int id) {
+    	switch (id) {
+    	case (QUAKE_DIALOG) : {
+    		LayoutInflater li = LayoutInflater.from(this);
+    		View quakeDetailsView = li.inflate(R.layout.quake_details, null);
+    		
+    		AlertDialog.Builder quakeDialog = new AlertDialog.Builder(this);
+    		quakeDialog.setTitle("Quake Title");
+    		quakeDialog.setView(quakeDetailsView);
+    		return quakeDialog.create();
+    	}
+    	}
+    	return null;
+    }
+    
+    @Override
+    public void onPrepareDialog(int id, Dialog dialog) {
+    	switch (id) {
+    	case (QUAKE_DIALOG) : {
+    		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    		String dateString = sdf.format(selectedQuake.getDate());
+    		String quakeText = "Magnitude " + selectedQuake.getMagnitude() + 
+    							"\n" + selectedQuake.getDetails() + "\n" +
+    							selectedQuake.getLink();
+    		
+    		AlertDialog quakeDialog = (AlertDialog)dialog;
+    		quakeDialog.setTitle(dateString);
+    		TextView tv = (TextView)quakeDialog.findViewById(R.id.quakeDetailsTextView);
+    		tv.setText(quakeText);
+    		
+    		break;
+    	}
+    	}
     }
 }
