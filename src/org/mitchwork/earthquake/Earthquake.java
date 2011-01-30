@@ -22,8 +22,13 @@ import org.xml.sax.SAXException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -42,9 +47,15 @@ public class Earthquake extends Activity {
 	
 	ArrayList<Quake> earthquakes = new ArrayList<Quake>();
 	
+	static final private int MENU_PREFERENCES = Menu.FIRST+1;
 	static final private int MENU_UPDATE = Menu.FIRST;
 	static final private int QUAKE_DIALOG =1;
+	private static final int SHOW_PREFERENCES = 1;
 	Quake selectedQuake;
+	
+	int minimumMagnitude = 0;
+	boolean autoUpdate = false;
+	int updateFreq = 0;
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -64,6 +75,7 @@ public class Earthquake extends Activity {
         aa = new ArrayAdapter<Quake>(this, layoutID, earthquakes);
         earthquakeListView.setAdapter(aa);
         
+        updateFromPreferences();
         refreshEarthquakes();
     }
     
@@ -148,11 +160,49 @@ public class Earthquake extends Activity {
     }
     
     private void addNewQuake(Quake _quake) {
-    	// Add the new quake to our list of earthquakes.
-    	earthquakes.add(_quake);
+    	if (_quake.getMagnitude() > minimumMagnitude) {
+    		// Add the new quake to our list of earthquakes.
+        	earthquakes.add(_quake);
+        	
+        	// Notify the array adapter of a change.
+        	aa.notifyDataSetChanged();
+    	}
+    }
+    
+    private void updateFromPreferences() {
+    	Context context = getApplicationContext();
+    	SharedPreferences prefs = 
+    		PreferenceManager.getDefaultSharedPreferences(context);
     	
-    	// Notify the array adapter of a change.
-    	aa.notifyDataSetChanged();
+    	int minMagIndex = prefs.getInt(Preferences.PREF_MIN_MAG, 0);
+    	if (minMagIndex < 0)
+    		minMagIndex = 0;
+    	
+    	int freqIndex = prefs.getInt(Preferences.PREF_UPDATE_FREQ, 0);
+    	if (freqIndex < 0)
+    		freqIndex = 0;
+    	
+    	autoUpdate = prefs.getBoolean(Preferences.PREF_AUTO_UPDATE, false);
+    	
+    	Resources r = getResources();
+    	// Get the option values from the arrays.
+    	int[] minMagValues = r.getIntArray(R.array.magnitude);
+    	int[] freqValues = r.getIntArray(R.array.update_freq_values);
+    	
+    	// Convert the values to ints.
+    	minimumMagnitude = minMagValues[minMagIndex];
+    	updateFreq = freqValues[freqIndex];
+    }
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+    	if (requestCode == SHOW_PREFERENCES)
+    		if (resultCode == Activity.RESULT_OK) {
+    			updateFromPreferences();
+    			refreshEarthquakes();
+    		}
     }
     
     @Override
@@ -160,6 +210,7 @@ public class Earthquake extends Activity {
     	super.onCreateOptionsMenu(menu);
     	
     	menu.add(0, MENU_UPDATE, Menu.NONE, R.string.menu_update);
+    	menu.add(0, MENU_PREFERENCES, Menu.NONE, R.string.menu_preferences);
     	
     	return true;
     }
@@ -171,6 +222,11 @@ public class Earthquake extends Activity {
     	switch (item.getItemId()) {
     	case (MENU_UPDATE): {
     		refreshEarthquakes();
+    		return true;
+    	}
+    	case (MENU_PREFERENCES): {
+    		Intent i = new Intent(this, Preferences.class);
+    		startActivityForResult(i, SHOW_PREFERENCES);
     		return true;
     	}
     	}
