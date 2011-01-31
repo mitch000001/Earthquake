@@ -8,13 +8,13 @@
   	<item>Every Hour</item>
   </string-array>
   
-  <array name="magnitude">
+  <string-array name="magnitude">
   	<item>3</item>
   	<item>5</item>
   	<item>6</item>
   	<item>7</item>
   	<item>8</item>
-  </array>
+  </string-array>
   
   <string-array name="magnitude_options">
   	<item>3</item>
@@ -24,11 +24,11 @@
   	<item>8</item>
   </string-array>
   
-  <array name="update_freq_values">
+  <string-array name="update_freq_values">
   	<item>1</item>
   	<item>5</item>
   	<item>10</item>
   	<item>15</item>
   	<item>60</item>
-  </array>
+  </string-array>
 </resources>
