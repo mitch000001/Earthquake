@@ -14,7 +14,7 @@ public class Quake {
 	
 	public Date getDate() { return date; }
 	public String getDetails() { return details; }
-	public Location getLoaction() { return location; }
+	public Location getLocation() { return location; }
 	public double getMagnitude() { return magnitude; }
 	public String getLink() { return link; }
 	

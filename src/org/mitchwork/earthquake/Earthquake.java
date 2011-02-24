@@ -22,10 +22,13 @@ import org.xml.sax.SAXException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -63,7 +66,9 @@ public class Earthquake extends Activity {
         setContentView(R.layout.main);
         
         earthquakeListView = (ListView)this.findViewById(R.id.earthquakeListView);
+        
         earthquakeListView.setOnItemClickListener(new OnItemClickListener() {
+        
         	@Override
         	public void onItemClick(AdapterView _av, View _v, int _index, long arg3) {
         		selectedQuake = earthquakes.get(_index);
@@ -74,6 +79,8 @@ public class Earthquake extends Activity {
         int layoutID = android.R.layout.simple_list_item_1;
         aa = new ArrayAdapter<Quake>(this, layoutID, earthquakes);
         earthquakeListView.setAdapter(aa);
+        
+        loadQuakesFromProvider();
         
         updateFromPreferences();
         refreshEarthquakes();
@@ -104,6 +111,7 @@ public class Earthquake extends Activity {
     			
     			// Clear the old earthquakes
     			earthquakes.clear();
+    			loadQuakesFromProvider();
     			
     			// Get a list of each earthquake entry.
     			NodeList nl = docEle.getElementsByTagName("entry");
@@ -160,6 +168,34 @@ public class Earthquake extends Activity {
     }
     
     private void addNewQuake(Quake _quake) {
+    	ContentResolver cr = getContentResolver();
+    	// Construct a where clause to make sure we don't already have this
+    	// earthquake in the provider.
+    	String w = EarthquakeProvider.KEY_DATE + " = " + _quake.getDate().getTime();
+    	
+    	// If the earthquake is new, insert it into the provider.
+    	if (cr.query(EarthquakeProvider.CONTENT_URI, null, w, null, null).getCount()==0) {
+    		ContentValues values = new ContentValues();
+    		
+    		values.put(EarthquakeProvider.KEY_DATE, _quake.getDate().getTime());
+    		values.put(EarthquakeProvider.KEY_DETAILS, _quake.getDetails());
+    		
+    		double lat = _quake.getLocation().getLatitude();
+    		double lng = _quake.getLocation().getLongitude();
+    		values.put(EarthquakeProvider.KEY_LOCATION_LAT, lat);
+    		values.put(EarthquakeProvider.KEY_LOCATION_LNG, lng);
+    		values.put(EarthquakeProvider.KEY_LINK, _quake.getLink());
+    		values.put(EarthquakeProvider.KEY_MAGINTUDE, _quake.getMagnitude());
+    		
+    		cr.insert(EarthquakeProvider.CONTENT_URI, values);
+    		earthquakes.add(_quake);
+    		
+    		addQuakeToArray(_quake);
+    	}
+
+    }
+    
+    private void addQuakeToArray(Quake _quake) {
     	if (_quake.getMagnitude() > minimumMagnitude) {
     		// Add the new quake to our list of earthquakes.
         	earthquakes.add(_quake);
@@ -167,9 +203,42 @@ public class Earthquake extends Activity {
         	// Notify the array adapter of a change.
         	aa.notifyDataSetChanged();
     	}
-    }
+		
+	}
     
-    private void updateFromPreferences() {
+    private void loadQuakesFromProvider() {
+    	// Clear the existing earthquake array
+    	earthquakes.clear();
+    	
+    	ContentResolver cr = getContentResolver();
+    	
+    	// Return all the saved earthquakes
+    	Cursor c = cr.query(EarthquakeProvider.CONTENT_URI, null, null, null, null);
+    	
+    	if (c.moveToFirst())
+    	{
+    		do {
+    			// Extract the quake details.
+    			Long datems = c.getLong(EarthquakeProvider.DATE_COLUMN);
+    			String details = c.getString(EarthquakeProvider.DETAILS_COLUMN);
+    			Float lat = c.getFloat(EarthquakeProvider.LATITUDE_COLUMN);
+    			Float lng = c.getFloat(EarthquakeProvider.LONGITUDE_COLUMN);
+    			Double mag = c.getDouble(EarthquakeProvider.MAGNITUDE_COLUMN);
+    			String link = c.getString(EarthquakeProvider.LINK_COLUMN);
+    			
+    			Location location = new Location("dummy");
+    			location.setLongitude(lng);
+    			location.setLatitude(lat);
+    			
+    			Date date = new Date(datems);
+    			
+    			Quake q = new Quake(date, details, location, mag, link);
+    			addQuakeToArray(q);
+    		} while (c.moveToNext());
+    	}
+    }
+
+	private void updateFromPreferences() {
     	Context context = getApplicationContext();
     	SharedPreferences prefs = 
     		PreferenceManager.getDefaultSharedPreferences(context);
