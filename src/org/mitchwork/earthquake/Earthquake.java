@@ -185,7 +185,7 @@ public class Earthquake extends Activity {
     		values.put(EarthquakeProvider.KEY_LOCATION_LAT, lat);
     		values.put(EarthquakeProvider.KEY_LOCATION_LNG, lng);
     		values.put(EarthquakeProvider.KEY_LINK, _quake.getLink());
-    		values.put(EarthquakeProvider.KEY_MAGINTUDE, _quake.getMagnitude());
+    		values.put(EarthquakeProvider.KEY_MAGNITUDE, _quake.getMagnitude());
     		
     		cr.insert(EarthquakeProvider.CONTENT_URI, values);
     		earthquakes.add(_quake);
