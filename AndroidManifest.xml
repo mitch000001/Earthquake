@@ -14,8 +14,8 @@
         <activity android:name=".Preferences"
         			android:label="Earthquake Preferences">
         </activity>
-        <provider android:name=".EartquakeProvider"
-        		android:authorities="com.mitchwork.provider.earthquake" />
+        <provider android:name=".EarthquakeProvider"
+        		android:authorities="org.mitchwork.provider.earthquake" />
 
     </application>
     <uses-sdk android:minSdkVersion="7" />
