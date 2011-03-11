@@ -51,6 +51,7 @@ public class Earthquake extends Activity {
 	ArrayList<Quake> earthquakes = new ArrayList<Quake>();
 	
 	static final private int MENU_PREFERENCES = Menu.FIRST+1;
+    static final private int MENU_EARTHQUAKE_MAP = Menu.FIRST+2;
 	static final private int MENU_UPDATE = Menu.FIRST;
 	static final private int QUAKE_DIALOG =1;
 	private static final int SHOW_PREFERENCES = 1;
@@ -280,6 +281,9 @@ public class Earthquake extends Activity {
     	
     	menu.add(0, MENU_UPDATE, Menu.NONE, R.string.menu_update);
     	menu.add(0, MENU_PREFERENCES, Menu.NONE, R.string.menu_preferences);
+        Intent startMap = new Intent(this, EarthquakeMap.class);
+        menu.add(0, MENU_EARTHQUAKE_MAP,
+                 Menu.NONE, R.string.menu_earthquake_map).setIntent(startMap);
     	
     	return true;
     }
@@ -310,7 +314,7 @@ public class Earthquake extends Activity {
     		View quakeDetailsView = li.inflate(R.layout.quake_details, null);
     		
     		AlertDialog.Builder quakeDialog = new AlertDialog.Builder(this);
-    		quakeDialog.setTitle("Quake Title");
+    		quakeDialog.setTitle("Quake Time");
     		quakeDialog.setView(quakeDetailsView);
     		return quakeDialog.create();
     	}
