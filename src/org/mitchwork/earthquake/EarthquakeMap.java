@@ -1,5 +1,9 @@
 package org.mitchwork.earthquake;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import com.google.android.maps.MapView;
 public class EarthquakeMap extends MapActivity {
 
     Cursor earthquakeCursor;
+    EarthquakeReceiver receiver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,12 @@ public class EarthquakeMap extends MapActivity {
     @Override
     public void onResume() {
         earthquakeCursor.requery();
+
+        IntentFilter filter;
+        filter = new IntentFilter(EarthquakeService.NEW_EARTHQUAKE_FOUND);
+        receiver = new EarthquakeReceiver();
+        registerReceiver(receiver, filter);
+
         super.onResume();
     }
 
@@ -47,5 +58,14 @@ public class EarthquakeMap extends MapActivity {
     @Override
     protected boolean isRouteDisplayed() {
         return false;
+    }
+
+    public class EarthquakeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            earthquakeCursor.requery();
+            MapView earthquakeMap = (MapView)findViewById(R.id.map_view);
+            earthquakeMap.invalidate();
+        }
     }
 }
