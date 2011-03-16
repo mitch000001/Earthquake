@@ -9,9 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6979b57-d8c4-44b6-8a78-a3af871226a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java" afterPath="$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" afterPath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" afterPath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" />
     </list>
     <ignored path="Earthquake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,11 +74,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EarthquakeService.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EarthquakeService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="41" selection-start="274" selection-end="274" vertical-scroll-proportion="0.17081851">
-              <folding />
+            <state line="99" column="98" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthquakeLookupTask.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="1.2244898">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,9 +109,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="69" column="0" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,9 +118,7 @@
         <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="4" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,6 +145,7 @@
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" />
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java" />
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" />
+        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java" />
       </list>
     </option>
   </component>
@@ -171,7 +179,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,13 +233,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Favorites" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
@@ -417,8 +426,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="22" width="1234" height="1002" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1234" height="1002" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -435,13 +444,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.6712018" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3299578" sideWeight="0.670068" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879817" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -498,68 +507,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="26" selection-start="61" selection-end="61" vertical-scroll-proportion="0.042704627">
-          <folding />
-        </state>
+        <state line="2" column="26" selection-start="61" selection-end="61" vertical-scroll-proportion="0.042704627" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/earthquake_map.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="0.23487544">
-          <folding />
-        </state>
+        <state line="11" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="0.23487544" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="75" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="75" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar:///Applications/android-sdk-mac_86/platforms/android-7/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="33" selection-start="8031" selection-end="8031" vertical-scroll-proportion="0.34923664">
-          <folding />
-        </state>
+        <state line="176" column="33" selection-start="8031" selection-end="8031" vertical-scroll-proportion="0.34923664" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="547" selection-end="547" vertical-scroll-proportion="0.24354243">
-          <folding />
-        </state>
+        <state line="11" column="8" selection-start="547" selection-end="547" vertical-scroll-proportion="0.24354243" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/Preferences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="16" column="13" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="69" column="0" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="41" selection-start="274" selection-end="274" vertical-scroll-proportion="0.17081851">
-          <folding />
+        <state line="99" column="98" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="1.2244898">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
