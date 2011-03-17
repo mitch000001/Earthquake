@@ -8,7 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6979b57-d8c4-44b6-8a78-a3af871226a4" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/icon.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/icon.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/icon.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/icon.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/org/mitchwork/earthquake/R.java" afterPath="$PROJECT_DIR$/gen/org/mitchwork/earthquake/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" afterPath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" afterPath="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" />
     </list>
     <ignored path="Earthquake.iws" />
@@ -77,18 +84,7 @@
       <file leaf-file-name="EarthquakeService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="98" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EarthquakeLookupTask.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="1.2244898">
+            <state line="62" column="8" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,11 +110,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EarthquakeMap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EarthquakeMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
+            <state line="17" column="7" selection-start="506" selection-end="506" vertical-scroll-proportion="0.18390805">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="79" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthquakeOverlay.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="5" selection-start="1680" selection-end="2182" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthquakeItemizedOverlay.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeItemizedOverlay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="33" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthquakeOverlayItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlayItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="4" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,11 +179,13 @@
         <option value="$PROJECT_DIR$/res/layout/earthquake_map.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlay.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" />
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java" />
-        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" />
         <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java" />
+        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java" />
+        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlayItem.java" />
+        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeItemizedOverlay.java" />
+        <option value="$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -179,8 +219,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,9 +270,82 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-mdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-ldpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earthquake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,12 +538,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1234" height="1002" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1" y="22" width="1234" height="1002" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -444,11 +555,12 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.6712018" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3299578" sideWeight="0.670068" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32993197" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Pomodoro" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879817" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39909297" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -490,34 +602,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Dropbox/Appwerk/michael/Development/Professional Android 2 Code Example Projects/Chapter 7 Earthquake 2/src/com/paad/earthquake/EarthquakeProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="5243" selection-end="5243" vertical-scroll-proportion="0.03914591" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="171" column="10" selection-start="5493" selection-end="5493" vertical-scroll-proportion="0.49288255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="26" selection-start="61" selection-end="61" vertical-scroll-proportion="0.042704627" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/earthquake_map.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="0.23487544" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="75" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar:///Applications/android-sdk-mac_86/platforms/android-7/android.jar!/android/app/Activity.class">
@@ -535,27 +622,87 @@
         <state line="16" column="13" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-ldpi/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="8" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/Earthquake.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="0" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="98" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeLookupTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="3225" selection-end="3225" vertical-scroll-proportion="1.2244898">
+        <state line="73" column="5" selection-start="1680" selection-end="2182" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/android-sdk-mac_86/add-ons/addon_google_apis_google_inc_7/libs/maps.jar!/com/google/android/maps/OverlayItem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="161" selection-end="161" vertical-scroll-proportion="0.12371134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeOverlayItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeItemizedOverlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="33" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="79" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/earthquake_map.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="506" selection-end="506" vertical-scroll-proportion="0.25287357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/mitchwork/earthquake/EarthquakeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="7" selection-start="506" selection-end="506" vertical-scroll-proportion="0.18390805">
+          <folding />
         </state>
       </provider>
     </entry>

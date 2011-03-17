@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import com.google.android.maps.MapActivity;
@@ -14,6 +15,7 @@ public class EarthquakeMap extends MapActivity {
 
     Cursor earthquakeCursor;
     EarthquakeReceiver receiver;
+    // Drawable pin = this.getResources().getDrawable(R.drawable.quake);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class EarthquakeMap extends MapActivity {
 
         MapView earthquakeMap = (MapView)findViewById(R.id.map_view);
         EarthquakeOverlay eo = new EarthquakeOverlay(earthquakeCursor);
+        // EarthquakeItemizedOverlay eio = new EarthquakeItemizedOverlay(earthquakeCursor, pin);
         earthquakeMap.getOverlays().add(eo);
 
     }
