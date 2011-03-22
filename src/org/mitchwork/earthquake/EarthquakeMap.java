@@ -15,7 +15,6 @@ public class EarthquakeMap extends MapActivity {
 
     Cursor earthquakeCursor;
     EarthquakeReceiver receiver;
-    // Drawable pin = this.getResources().getDrawable(R.drawable.quake);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,9 +27,11 @@ public class EarthquakeMap extends MapActivity {
                                                       null);
 
         MapView earthquakeMap = (MapView)findViewById(R.id.map_view);
-        EarthquakeOverlay eo = new EarthquakeOverlay(earthquakeCursor);
-        // EarthquakeItemizedOverlay eio = new EarthquakeItemizedOverlay(earthquakeCursor, pin);
-        earthquakeMap.getOverlays().add(eo);
+        earthquakeMap.setBuiltInZoomControls(true);
+        // EarthquakeOverlay eo = new EarthquakeOverlay(earthquakeCursor);
+        Drawable pin = this.getResources().getDrawable(R.drawable.quake);
+        EarthquakeItemizedOverlay eio = new EarthquakeItemizedOverlay(earthquakeCursor, pin);
+        earthquakeMap.getOverlays().add(eio);
 
     }
 

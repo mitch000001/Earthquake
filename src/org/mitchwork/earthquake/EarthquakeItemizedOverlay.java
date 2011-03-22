@@ -1,6 +1,8 @@
 package org.mitchwork.earthquake;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
@@ -12,13 +14,30 @@ import java.util.ArrayList;
 
 public class EarthquakeItemizedOverlay extends ItemizedOverlay<EarthquakeOverlayItem> {
 
-    ArrayList<EarthquakeOverlayItem> quakeLocations;
-    Cursor earthquakes;
+    private ArrayList<EarthquakeOverlayItem> quakeLocations;
+    private Cursor earthquakes;
+    private Context mContext;
 
     public EarthquakeItemizedOverlay(Cursor cursor, Drawable drawable) {
         super(boundCenterBottom(drawable));
 
         earthquakes = cursor;
+
+        quakeLocations = new ArrayList<EarthquakeOverlayItem>();
+        refreshQuakeLocations();
+        earthquakes.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                refreshQuakeLocations();
+            }
+        });
+    }
+
+    public EarthquakeItemizedOverlay(Cursor cursor, Drawable drawable, Context context) {
+        super(boundCenterBottom(drawable));
+
+        earthquakes = cursor;
+        mContext = context;
 
         quakeLocations = new ArrayList<EarthquakeOverlayItem>();
         refreshQuakeLocations();
@@ -63,5 +82,14 @@ public class EarthquakeItemizedOverlay extends ItemizedOverlay<EarthquakeOverlay
     public void addOverlay(EarthquakeOverlayItem overlay) {
         quakeLocations.add(overlay);
         populate();
+    }
+    @Override
+    protected boolean onTap(int index) {
+        OverlayItem item = quakeLocations.get(index);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+        dialog.setTitle(item.getTitle());
+        dialog.setMessage(item.getSnippet());
+        dialog.show();
+        return true;
     }
 }
